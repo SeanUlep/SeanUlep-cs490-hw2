@@ -15,9 +15,9 @@ const ContactPage = () => {
 
   return (
     <>
-      <MetaTags title="Contact" description="Contacting A Page" />
+      <MetaTags title="Contact" description="Contact page" />
 
-      <Form onSubmit={onSubmit}>
+      <Form onSubmit={onSubmit} config={{ mode: 'onBlur' }}>
         <Label name="name" errorClassName="error">
           Name
         </Label>
