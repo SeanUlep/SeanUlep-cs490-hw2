@@ -6,9 +6,9 @@ const truncate = (text, length) => {
 
 const Article = ({ article, summary = false }) => {
   return (
-    <article>
+    <article className="mt-10">
       <header>
-        <h2>
+        <h2 className="text-xl text-blue-700 font-semibold">
           <Link to={routes.article({ id: article.id })}>{article.title}</Link>
         </h2>
       </header>

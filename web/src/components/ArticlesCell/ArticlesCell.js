@@ -10,20 +10,19 @@ export const QUERY = gql`
     }
   }
 `
+
 export const Loading = () => <div>Loading...</div>
 
 export const Empty = () => <div>Empty</div>
 
-export const Failure = ({ error }) => (
-  <div style={{ color: 'red' }}>Error: {error?.message}</div>
-)
+export const Failure = ({ error }) => <div>Error: {error.message}</div>
 
 export const Success = ({ articles }) => {
   return (
-    <>
+    <div className="space-y-10">
       {articles.map((article) => (
-        <Article key={article.id} article={article} />
+        <Article article={article} key={article.id} summary={true} />
       ))}
-    </>
+    </div>
   )
 }
