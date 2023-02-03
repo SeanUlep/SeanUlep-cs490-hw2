@@ -11,11 +11,18 @@
 
 import Article from './Article'
 
-export const generated = () => {
-  return <Article />
+const ARTICLE = {
+  id: 1,
+  title: 'First Post',
+  body: 'Neutra tacos hot chicken prism raw denim, put a bird on it enamel what is this im writing.',
 }
 
-export default {
-  title: 'Components/Article',
-  component: Article,
+export const full = () => {
+  return <Article article={ARTICLE} />
 }
+
+export const summary = () => {
+  return <Article article={ARTICLE} summary={true} />
+}
+
+export default { title: 'Components/Article' }
