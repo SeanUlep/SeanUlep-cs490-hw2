@@ -21,6 +21,8 @@ export const full = () => {
   return <Article article={ARTICLE} />
 }
 
-export const summary = () => <Article article={ARTICLE} summary={true} />
+export const summary = () => {
+  return <Article article={ARTICLE} summary={true} />
+}
 
 export default { title: 'Components/Article' }
