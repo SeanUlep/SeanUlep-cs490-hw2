@@ -27,6 +27,7 @@ const Comment = ({ comment }) => {
       },
     ],
   })
+
   const moderate = () => {
     if (confirm('Are you sure?')) {
       deleteComment({
