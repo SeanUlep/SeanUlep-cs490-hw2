@@ -13,8 +13,8 @@ export const failure = (args) => {
   return Failure ? <Failure error={new Error('Oh no')} {...args} /> : <></>
 }
 
-export const success = (args) => {
-  return Success ? <Success {...standard()} {...args} /> : <></>
+export const success = () => {
+  return Success ? <Success articles={standard().articles} /> : null
 }
 
 export default { title: 'Cells/ArticlesCell' }
