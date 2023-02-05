@@ -13,18 +13,19 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Empty = () => <div>Empty</div>
-
+export const Empty = () => {
+  return <div className="text-center text-gray-500">No comments yet</div>
+}
 export const Failure = ({ error }) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
 )
 
 export const Success = ({ comments }) => {
   return (
-    <>
+    <div className="space-y-8">
       {comments.map((comment) => (
-        <Comment key={comment.id} comment={comment} />
+        <Comment comment={comment} key={comment.id} />
       ))}
-    </>
+    </div>
   )
 }

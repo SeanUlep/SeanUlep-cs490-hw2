@@ -1,21 +1,21 @@
-import { render, screen } from '@redwoodjs/testing'
+const formattedDate = (datetime) => {
+  const parsedDate = new Date(datetime)
+  const month = parsedDate.toLocaleString('default', { month: 'long' })
+  return `${parsedDate.getDate()} ${month} ${parsedDate.getFullYear()}`
+}
 
-import Comment from './Comment'
+const Comment = ({ comment }) => {
+  return (
+    <div className="rounded-lg bg-gray-200 p-8">
+      <header className="flex justify-between">
+        <h2 className="font-semibold text-gray-700">{comment.name}</h2>
+        <time className="text-xs text-gray-500" dateTime={comment.createdAt}>
+          {formattedDate(comment.createdAt)}
+        </time>
+      </header>
+      <p className="mt-2 text-sm">{comment.body}</p>
+    </div>
+  )
+}
 
-describe('Comment', () => {
-  it('renders successfully', () => {
-    const comment = {
-      name: 'John Doe',
-      body: 'This is my comment',
-      createdAt: '2020-01-02T12:34:56Z',
-    }
-    render(<Comment comment={comment} />)
-
-    expect(screen.getByText(comment.name)).toBeInTheDocument()
-    expect(screen.getByText(comment.body)).toBeInTheDocument()
-    const dateExpect = screen.getByText('2 January 2020')
-    expect(dateExpect).toBeInTheDocument()
-    expect(dateExpect.nodeName).toEqual('TIME')
-    expect(dateExpect).toHaveAttribute('datetime', comment.createdAt)
-  })
-})
+export default Comment
